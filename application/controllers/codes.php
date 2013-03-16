@@ -29,6 +29,7 @@ class Codes_Controller extends Base_Controller {
         $id = $id;
         $code = Code::where('slug', '=', $id)->first();
         $comments = Comment::where('code_id', '=', $code->id)->get();
+        $
         return View::make('code.show')->with(array('code' => $code, 'comments' => $comments));
     }   
 
