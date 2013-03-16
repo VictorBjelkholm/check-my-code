@@ -2,11 +2,11 @@
 
 class Comment extends Eloquent
 {
-	public function users() {
-		$this->belongs_to('Users', 'author_id');
+	public function user() {
+		$this->belongs_to('User', 'author_id');
 	}
 
-	public function codes() {
-		$this->belongs_to('Codes', 'code_id');
+	public function code() {
+		$this->belongs_to('Code', 'code_id');
 	}
 }

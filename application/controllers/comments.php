@@ -16,8 +16,8 @@ class Comments_Controller extends Base_Controller {
             'author_id' => Auth::user()->id,
             'code_id' => Input::get('code_id')
             ));
-        dd($comment);
-        return 'You are creating a comment';
+        $code = Code::where('id', '=', Input::get('code_id'))->first();
+        return Redirect::to_route('show_code', array($code->slug));
     }    
 
 	public function get_show()

@@ -11,6 +11,7 @@
 			@if( Auth::guest() )
 			    <li class="{{ URI::is( 'login') ? 'active' : '' }}"><a href="/login"><i class="icon-user icon-white"></i> Login</a></li>
 			@else
+					<li><a href="/user/{{ Auth::user()->username }}">{{ Auth::user()->username }}</a></li>
 			    <li><a href="/logout"><i class="icon-user icon-white"></i> Logout</a></li>
 			@endif
 		</ul>

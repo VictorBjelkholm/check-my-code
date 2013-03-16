@@ -9,7 +9,7 @@
 			<?php
 				$codeContent = (strlen($code->content ) > 203) ? substr($code->content,0,198).'<br/>...' : $code->content;
 			?>
-			<p>Created at: {{ $code->created_at }} by <a href="{{ URL::to_route('show_user', $code->users->username) }}">{{ $code->users->name }}</a> </p>
+			<p>Created at: {{ $code->created_at }} by <a href="{{ URL::to_route('show_user', 'asd') }}"> asd </a> </p>
 			@include('code.controls')
 			<p><pre class="prettyprint linenums">{{ $codeContent }}</pre></p>
 		</div>

@@ -2,7 +2,7 @@
 
 class Code extends Eloquent 
 {
-	public function users() {
+	public function user() {
 		return $this->belongs_to('User', 'author_id');
 	}
 

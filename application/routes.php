@@ -32,9 +32,7 @@
 |
 */
 
-Route::get('/', function(){
-	return View::make('pages.home');
-});
+Route::get('/', array('as' => 'homepage', 'uses' => 'home@index'));
 
 Route::get('logout', function() {
 	//Redirect to login
@@ -47,6 +45,10 @@ Route::post('login', 'users@login');
 Route::get('code/new', array('before' => 'auth', 'as' => 'new_code', 'uses' => 'codes@new'));
 
 Route::get('login', array('as' => 'login_user', 'uses' => 'users@login'));
+
+Route::get('register', array('as' => 'register_user', 'uses' => 'users@new'));
+
+Route::post('register', array('as' => 'create_user', 'uses' => 'users@index'));
 
 Route::post('code', array('as' => 'create_code', 'uses' => 'codes@index'));
 

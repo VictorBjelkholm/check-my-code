@@ -20,7 +20,7 @@ class Codes_Controller extends Base_Controller {
         $code->syntax = Input::get('syntax', 'None');
         $code->author_id = Auth::user()->id;
         $code->save();
-        return Redirect::to_route('show_code', $code->id);
+        return Redirect::to_route('show_code', $code->slug);
     }    
 
     public function get_show($id)
@@ -28,8 +28,9 @@ class Codes_Controller extends Base_Controller {
         //TODO: Validate EVERYTHING!
         $id = $id;
         $code = Code::where('slug', '=', $id)->first();
-        $comments = Comment::where('code_id', '=', $code->id)->get();
-        return View::make('code.show')->with(array('code' => $code, 'comments' => $comments));
+        $comments = Comment::order_by('created_at', 'DESC')->where('code_id', '=', $code->id)->get();
+        $user = User::find($code->author_id)->user;
+        return View::make('code.show')->with(array('code' => $code, 'comments' => $comments, 'user' => $user));
     }   
 
     public function get_list() {

@@ -11,13 +11,31 @@ class Users_Controller extends Base_Controller {
 
 	public function post_index()
     {
-
+        if( User::where_username(Input::get('username'))->first() ) {
+            return 'Username already exists!';
+        } else {
+            //actual submit
+            $user = User::create(array(
+                    'username' => Input::get('username'),
+                    'password' => Hash::make(Input::get('password')),
+                    'name' => Input::get('name'),
+                    'email' => Input::get('email'),
+                    'bio' => Input::get('bio')
+                ));
+            if($user) {
+                Auth::login($user->id);
+                return Redirect::to_route('homepage');
+            } else {
+                return 'Couldn\'t log you in...';
+            }
+        }
     }    
 
 	public function get_show($username)
     {
         $user = User::where_username($username)->first();
-        return View::make('user.show')->with('user', $user);
+        $codes = User::find($user->id)->codes;
+        return View::make('user.show')->with(array('user' => $user, 'codes' => $codes));
     }
 
     public function get_login(){
@@ -45,7 +63,8 @@ class Users_Controller extends Base_Controller {
 
 	public function get_new()
     {
-
+        //Form for creating user
+        return View::make('user.new');
     }    
 
 	public function put_update()

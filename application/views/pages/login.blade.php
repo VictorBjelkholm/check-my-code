@@ -17,10 +17,9 @@
 				{{ Form::password('password') }}
 			</div>
 		</div>
-		<div class="control-group">
-			<div class="controls">
+		<div class="form-actions">
+				<a href="{{ URL::to_route('register_user', 'Register') }}" class="btn btn-success">Register</a>
 				{{ Form::submit('Login', array('class' => 'btn btn-primary')) }}
-			</div>
 		</div>
 	{{ Form::close() }}	
 @endsection

@@ -9,7 +9,7 @@
 	{{ Form::open('/comment', 'POST') }}
 		</p>
 		{{ Form::label('comment', 'Your comment') }}
-		{{ Form::textarea('comment') }}
+		{{ Form::textarea('comment', '', array('class' => 'span12')) }}
 		{{ Form::hidden('code_id', $code->id) }}
 		</p>
 		{{ Form::submit('Send', array('class' => 'btn')) }}

@@ -34,3 +34,18 @@ textarea {
 #wrapper {
 	padding-bottom: 10em;
 }
+
+.required {
+}
+
+.required:after {
+	content: '*';
+}
+
+.comment {
+	background-color: #333333;
+	color: #F7F7F7;
+	margin-top: 10px;
+	padding: 5px;
+	padding-bottom: 0px;
+}
