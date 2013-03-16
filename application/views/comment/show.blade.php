@@ -1,0 +1,1 @@
+This is the C:\Users\Victor\Documents\Projects\check-my-code\application\views/comment/show.blade.php view

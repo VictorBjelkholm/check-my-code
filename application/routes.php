@@ -32,10 +32,42 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
+Route::get('/', function(){
+	return View::make('pages.home');
 });
+
+Route::get('logout', function() {
+	//Redirect to login
+	Auth::logout();
+	return Redirect::to_route('list_codes');
+});
+
+Route::post('login', 'users@login');
+
+Route::get('code/new', array('before' => 'auth', 'as' => 'new_code', 'uses' => 'codes@new'));
+
+Route::get('login', array('as' => 'login_user', 'uses' => 'users@login'));
+
+Route::post('code', array('as' => 'create_code', 'uses' => 'codes@index'));
+
+Route::get('code/(:any)', array('as' => 'show_code', 'uses' => 'codes@show'));
+
+Route::get('code', function(){
+	return Redirect::to_route('list_codes');
+});
+
+Route::get('code/list', array('as' => 'list_codes', 'uses' => 'codes@list'));
+
+
+Route::get('about', function(){
+	return View::make('pages.about');
+});
+
+Route::get('user/(:any)', array('as' => 'show_user', 'uses' => 'users@show'));
+
+Route::get('comment/new/(:any)', array('before' => 'auth', 'as' => 'new_comment', 'uses' => 'comments@new'));
+
+Route::post('comment', array('before' => 'auth', 'uses' => 'comments@index'));
 
 /*
 |--------------------------------------------------------------------------
