@@ -50,9 +50,9 @@ return array(
 	| encrypted strings and hashes. It is extremely important that this key
 	| remain secret and should not be shared with anyone. Make it about 32
 	| characters of random gibberish.
-	|
+	|ddd
 	*/
-
+	//TODO: different key in production?
 	'key' => 'koLaBBjGM49Ur2fIVrr3nVLvM3FQhM1p',
 
 	/*

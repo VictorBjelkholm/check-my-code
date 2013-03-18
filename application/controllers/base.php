@@ -14,4 +14,12 @@ class Base_Controller extends Controller {
 		return Response::error('404');
 	}
 
+	public function code_is_long($code) {
+        if($code >= 200) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -11,9 +11,22 @@
 			@if( Auth::guest() )
 			    <li class="{{ URI::is( 'login') ? 'active' : '' }}"><a href="/login"><i class="icon-user icon-white"></i> Login</a></li>
 			@else
-					<li><a href="/user/{{ Auth::user()->username }}">{{ Auth::user()->username }}</a></li>
+				<li><a href="/user/{{ Auth::user()->username }}">{{ Auth::user()->username }}</a></li>
+				<li class="divider-vertical"></li>
 			    <li><a href="/logout"><i class="icon-user icon-white"></i> Logout</a></li>
 			@endif
 		</ul>
 	</div>
 </div>
+<!-- TODO: Add second navbar for secondary navigation -->
+<!--<div class="navbar navbar-static-top">
+	<div class="navbar-inner">
+		<ul class="nav">
+			<li class="active">
+				<a href="#">Home</a>
+			</li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+		</ul>
+	</div>
+</div> -->

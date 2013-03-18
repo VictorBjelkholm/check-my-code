@@ -8,7 +8,6 @@
 	<p><strong>Created:</strong> {{ $user->created_at }}</p>
 	<p><strong>Last updated:</strong> {{ $user->updated_at }}</p>
 	@foreach($codes as $code)	
-		<h3>{{ $code->title }}</h3>
-	<p><pre class="prettyprint linenums"><code class="language-{{ $code->syntax }}">{{ $code->content }}</code></pre></p>
+		@include('templates.code')
 	@endforeach
 @endsection

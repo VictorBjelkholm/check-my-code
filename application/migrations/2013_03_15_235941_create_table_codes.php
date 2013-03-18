@@ -7,7 +7,7 @@ class Create_Table_Codes {
 		Schema::create('codes', function($table) {
 			$table->increments('id');
 			$table->text('content');
-			$table->integer('author_id');
+			$table->integer('user_id');
 			$table->timestamps();
 	});
 

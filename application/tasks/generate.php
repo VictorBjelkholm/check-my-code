@@ -726,7 +726,7 @@ EOT;
 
 
     /**
-     * Crazy sloppy prettify. TODO - Cleanup
+     * Crazy sloppy prettify. TODO: - Cleanup
      *
      * @param  $content string  
      * @return string
