@@ -9,6 +9,5 @@
 			<a href="#" class="btn btn-danger">Delete</a>
 		@endif
 	@endif
-	
 </div>
 @endif
