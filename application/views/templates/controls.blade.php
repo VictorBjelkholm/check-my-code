@@ -1,3 +1,4 @@
+@if(!Auth::guest() )
 <div class="btn-group">
 	<a href="{{ URL::to_route('new_comment') }}/{{ $code->slug }}#comment" class="btn btn-info">Comment</a>
 	<a href="#" class="btn btn-success">Fork</a>
@@ -10,3 +11,4 @@
 	@endif
 	
 </div>
+@endif
