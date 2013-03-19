@@ -48,9 +48,11 @@ class Codes_Controller extends Base_Controller {
         return View::make('code.new')->with('code', $code);
     }
 
-	public function get_edit()
+    public function get_edit($codeSlug)
     {
+        $code = Code::where_slug($codeSlug)->first();
         //TODO: Show form for editing code that you have, should possible save the change in seperate
+        return View::make('code.edit')->with('code', $code);
     }    
 
 	public function get_new()
@@ -62,6 +64,14 @@ class Codes_Controller extends Base_Controller {
 	public function put_update()
     {
         //TODO: Actual request for updating
+        $codeId = Input::get('codeId');
+        $code = Code::find($codeId);
+        $code->title = Input::get('title');
+        $code->slug = Str::slug(Input::get('title'));
+        $code->content = Input::get('content');
+        $code->syntax = Input::get('syntax');
+        $code->save();
+        return Redirect::to_route('show_code', $code->slug);
     }    
 
 	public function delete_destroy()

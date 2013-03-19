@@ -25,7 +25,9 @@ $languages = array(
 	"sh" => "Shell",
 	"xhtml" => "XHTML",
 	"xml" => "XML",
-	"xsl" => "XSL");
+	"xsl" => "XSL"
+);
+
 if(isset($code)) {
 	$codeTitle = 'Fork of ' . $code->title;
 	$codeContent = $code->content;
@@ -52,6 +54,6 @@ if(isset($code)) {
 			{{ Form::hidden('forkOf', $codeId) }}
 		@endif
 		<br/>
-		{{ Form::submit('submit', array('class' => 'btn btn-success')) }}
+		{{ Form::submit('Submit', array('class' => 'btn btn-success')) }}
 	{{ Form::close() }}
 @endsection

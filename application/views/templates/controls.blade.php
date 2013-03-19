@@ -5,7 +5,7 @@
 	<!-- This should only run if user is owner -->
 	@if(!Auth::guest() )
 		@if( Auth::user()->id === $code->user->id)
-			<a href="#" class="btn btn-warning">Edit</a>
+			<a href="{{ URL::to_route('edit_code', array($code->slug)) }}" class="btn btn-warning">Edit</a>
 			<a href="#" class="btn btn-danger">Delete</a>
 		@endif
 	@endif

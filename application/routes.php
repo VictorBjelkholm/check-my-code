@@ -64,6 +64,10 @@ Route::get('code/list', array('as' => 'list_codes', 'uses' => 'codes@list'));
 
 Route::get('code/(:any)/fork', array('as' => 'fork_code', 'uses' => 'codes@fork'));
 
+Route::get('code/(:any)/edit', array('as' => 'edit_code', 'uses' => 'codes@edit'));
+
+Route::put('code', 'codes@update');
+
 /* Comment Routes */
 Route::get('comment/new/(:any)', array('before' => 'auth', 'as' => 'new_comment', 'uses' => 'comments@new'));
 
