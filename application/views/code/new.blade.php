@@ -26,17 +26,32 @@ $languages = array(
 	"xhtml" => "XHTML",
 	"xml" => "XML",
 	"xsl" => "XSL");
+if(isset($code)) {
+	$codeTitle = 'Fork of ' . $code->title;
+	$codeContent = $code->content;
+	$codeSyntax = $code->syntax;
+	$codeId = $code->id;
+} else {
+	$codeTitle = '';
+	$codeContent = '';
+	$codeSyntax = '';
+}
+
 ?>
 
 @section('content')
 	<h2>New code</h2>
 	{{ Form::open('code') }}
 		{{ Form::label('title', 'Your title') }}
-		{{ Form::text('title') }}
+		{{ Form::text('title', $codeTitle) }}
 		{{ Form::label('syntax', 'Syntax') }}
-		{{ Form::select('syntax', $languages) }}
+		{{ Form::select('syntax', $languages, $codeSyntax) }}
 		{{ Form::label('content', 'Your code') }}
-		{{ Form::textarea('content') }}<br/>
+		{{ Form::textarea('content', $codeContent) }}
+		@if(isset($code))
+			{{ Form::hidden('forkOf', $codeId) }}
+		@endif
+		<br/>
 		{{ Form::submit('submit', array('class' => 'btn btn-success')) }}
 	{{ Form::close() }}
 @endsection

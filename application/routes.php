@@ -49,9 +49,9 @@ Route::get('user/(:any)', array('as' => 'show_user', 'uses' => 'users@show'));
 
 Route::post('register', array('as' => 'create_user', 'uses' => 'users@index'));
 
-Route::post('login', 'users@login');
-
 Route::get('login', array('as' => 'login_user', 'uses' => 'users@login'));
+
+Route::post('login', 'users@login');
 
 /* Code Routes */
 Route::get('code/new', array('before' => 'auth', 'as' => 'new_code', 'uses' => 'codes@new'));
@@ -61,6 +61,8 @@ Route::post('code', array('as' => 'create_code', 'uses' => 'codes@index'));
 Route::get('code/(:any)', array('as' => 'show_code', 'uses' => 'codes@show'));
 
 Route::get('code/list', array('as' => 'list_codes', 'uses' => 'codes@list'));
+
+Route::get('code/(:any)/fork', array('as' => 'fork_code', 'uses' => 'codes@fork'));
 
 /* Comment Routes */
 Route::get('comment/new/(:any)', array('before' => 'auth', 'as' => 'new_comment', 'uses' => 'comments@new'));

@@ -43,6 +43,11 @@ class Codes_Controller extends Base_Controller {
         return View::make('code.index')->with('codes', $codes);
     } 
 
+    public function get_fork($codeSlug) {
+        $code = Code::where_slug($codeSlug)->first();
+        return View::make('code.new')->with('code', $code);
+    }
+
 	public function get_edit()
     {
         //TODO: Show form for editing code that you have, should possible save the change in seperate
