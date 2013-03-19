@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="wrapper">
-		<div id="header" class="span12">
+		<div id="header">
 			@render('templates.header')
 		</div> <!-- End #header -->
 		<div id="content" class="span12">
