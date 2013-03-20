@@ -58,7 +58,7 @@ Route::get('code/new', array('before' => 'auth', 'as' => 'new_code', 'uses' => '
 
 Route::post('code', array('as' => 'create_code', 'uses' => 'codes@index'));
 
-Route::get('code/(:any)', array('as' => 'show_code', 'uses' => 'codes@show'));
+Route::get('(:any)/(:any)', array('as' => 'show_code', 'uses' => 'codes@show'));
 
 Route::get('code/list', array('as' => 'list_codes', 'uses' => 'codes@list'));
 

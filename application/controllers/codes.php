@@ -29,11 +29,12 @@ class Codes_Controller extends Base_Controller {
         return Redirect::to_route('show_code', $code->slug);
     }    
 
-    public function get_show($id)
+    public function get_show($user, $id)
     {
         //TODO: Validate EVERYTHING!
         //TODO: Check so that code really exists, if not, redirect
-        $codes = Code::with(array('user', 'comments', 'comments.user'))->where_slug($id)->get();
+        $user = User::where_username($user)->first();
+        $codes = Code::with(array('user', 'comments', 'comments.user'))->where_slug_and_user_id($id, $user->id)->get();
         return View::make('code.show')->with(array('codes' => $codes));
     }   
 
