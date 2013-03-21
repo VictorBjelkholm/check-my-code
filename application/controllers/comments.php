@@ -17,7 +17,7 @@ class Comments_Controller extends Base_Controller {
             'code_id' => Input::get('code_id')
             ));
         $code = Code::where('id', '=', Input::get('code_id'))->first();
-        return Redirect::to_route('show_code', array($code->slug));
+        return Redirect::to_route('show_code', array($code->user->username, $code->slug));
     }    
 
 	public function get_show()
