@@ -54,7 +54,9 @@ class Users_Controller extends Base_Controller {
 
         if( Auth::attempt($credentials)) {
             //return 'You are user!';
-            return Redirect::home();
+            $prevUrl = Session::get('prevUrl');
+            Session::forget('prevUrl');
+            return Redirect::to($prevUrl);
         } else {
             return View::make('pages.login')->with('message', 'Wrong credentials!');
         }
