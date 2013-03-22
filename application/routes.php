@@ -14,8 +14,8 @@
 |		Route::get('hello', function()
 |		{
 |			return 'Hello World!';
-|		});
-|
+|		});f
+|ff
 | You can even respond to more than one URI:
 |
 |		Route::post(array('hello', 'world'), function()
@@ -103,12 +103,6 @@ Event::listen('404', function()
 Event::listen('500', function()
 {
 	return Response::error('500');
-});
-
-Event::listen('laravel.query', function($sql){
-	if(!getenv('production')){
-		var_dump($sql);
-	}
 });
 
 /*
